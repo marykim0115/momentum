@@ -1,0 +1,29 @@
+#root {
+    height: 100vh;
+}
+
+div, #login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    width: 450px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    text-align: center;
+}
+
+span { margin: 10px 0;}
+
+button {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+#clock { font-size: 58px;}
