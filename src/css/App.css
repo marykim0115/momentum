@@ -10,20 +10,38 @@ div, #login-form{
 }
 
 input {
+    background-color: transparent;
     width: 450px;
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     outline: none;
     text-align: center;
+    padding-bottom: 5px;
+    caret-color: white;
+    font-size: x-large;
 }
 
-span { margin: 10px 0;}
+span { margin: 10px 0;
+    font-size: large;
+font-weight: 600;}
 
 button {
+    font-size: large;
+    color: white;
+    font-weight: 600;
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 20px;
     padding: 10px 20px;
 }
 
-#clock { font-size: 58px;}
+.whiteText {
+    color: white; 
+}
+
+#clock { font-size: 80px;}
+
+#bg {
+    z-index: -1;
+    position: absolute;
+}
