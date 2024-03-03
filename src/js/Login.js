@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Login = () => {
+  /*
   const [username, setUsername] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const USERNAME_KEY = "username";
@@ -16,28 +17,27 @@ const Login = () => {
       setIsVisible(false);
     }
   }, []);
+*/
 
   const handleLoginSubmit = (event) => {
-    event.preventDefault();
-    const username = event.target.element.username.value;
-    setUsername(username);
-    localStorage.setItem(USERNAME_KEY, username);
-    setIsVisible(true);
+    const username = event.target.elements.username.value.trim();
+    localStorage.setItem("username", username);
   };
 
   return (
     <div>
-      {!isVisible && (
-        <form id="login-form" className="whiteText center" onSubmit={handleLoginSubmit}>
-          <h1>Hello! What's your name?</h1>
-          <input type="text" name="username" required maxLength="15" />
-          <span>
-            Please enter your first name or the name you prefer to be called.
-          </span>
-          <button type="submit">Create Account</button>
-        </form>
-      )}
-      {isVisible && <h1 id="greeting">Hello! {username}</h1>}
+      <form
+        id="login-form"
+        className="whiteText center"
+        onSubmit={handleLoginSubmit}
+      >
+        <h1>Hello! What's your name?</h1>
+        <input type="text" name="username" required maxLength="15" />
+        <span>
+          Please enter your first name or the name you prefer to be called.
+        </span>
+        <button type="submit">Create Account</button>
+      </form>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Clock from "./js/Clock";
 import Background from "./js/Background";
 import Todo from "./js/todo";
 import { useState, useEffect } from "react";
+import Quote from "./js/Quote";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -21,7 +22,7 @@ function App() {
       <Clock />
       
       {username ? <Todo /> :<Login />}
-      
+      <Quote />
     </div>
   );
 }

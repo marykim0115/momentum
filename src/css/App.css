@@ -47,7 +47,7 @@ button {
 }
 
 #clock { font-size: 80px; font-weight:900; padding: 30px 0;}
-#login-form h1 {font-size: 30px; font-weight:900;}
+h1 {font-size: 30px; font-weight:900;}
 
 #bgDiv {
     width: 100%;

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const Todo = () => {
   const [toDos, setToDos] = useState([]);
   const [newToDo, setNewToDo] = useState("");
+  const [username, setUsername] = useState("");
 
   const TODO_KEY = "toDos";
 
@@ -14,14 +15,15 @@ const Todo = () => {
     }
   }, []);
 
-  // toDos[]의 상태가 변경될때마다, 로컬스토리지에 to do list 저장
   useEffect(() => {
-    localStorage.setItem(TODO_KEY, JSON.stringify(toDos));
-  }, [toDos]);
+    const savedUsername = localStorage.getItem("username");
+    if (savedUsername) {
+      setUsername(savedUsername); // 로컬 스토리지에서 사용자 이름을 가져와 상태에 설정
+    }
+  }, []);
 
   const handleToDoSubmit = (e) => {
     e.preventDefault();
-    if (!newToDo) return; //newToDo가 비어 있으면 함수 종료
 
     const newTodoObj = {
       text: newToDo,
@@ -30,14 +32,21 @@ const Todo = () => {
 
     setToDos([...toDos, newTodoObj]);
     setNewToDo("");
+
+    localStorage.setItem(TODO_KEY, JSON.stringify(toDos));
   };
 
+  // toDos[]의 상태가 변경될때마다, 로컬스토리지에 to do list 저장
+  // useEffect(() => {
+  //   localStorage.setItem(TODO_KEY, JSON.stringify(toDos));
+  // }, [toDos]);
+
   const deleteToDo = (id) => {
-    setToDos(toDos.filter((toDo) => toDo.id !== id));
+    setToDos((prevToDos) => prevToDos.filter((toDo) => toDo.id !== id));
   };
 
   return (
-    <div className="center white">
+    <div className="center whiteText">
       <h1 id="greeting">Hello! {username}</h1>
       <form onSubmit={handleToDoSubmit}>
         <input
