@@ -18,7 +18,11 @@ const Clock = () => {
     return `${hours}:${minutes}:${seconds}`;
   };
 
-  return <h2 id="clock" className="whiteText">{formattedTime()}</h2>;
+  return (
+    <h2 id="clock" className="whiteText center">
+      {formattedTime()}
+    </h2>
+  );
 };
 
 export default Clock;

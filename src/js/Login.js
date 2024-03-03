@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div>
       {!isVisible && (
-        <form id="login-form" className="whiteText" onSubmit={handleLoginSubmit}>
+        <form id="login-form" className="whiteText center" onSubmit={handleLoginSubmit}>
           <h1>Hello! What's your name?</h1>
           <input type="text" name="username" required maxLength="15" />
           <span>
