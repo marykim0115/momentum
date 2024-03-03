@@ -18,7 +18,10 @@ input {
     padding-bottom: 5px;
     caret-color: white;
     font-size: x-large;
+    color: white;
 }
+
+::placeholder {color: white; font-size: 18px; font-weight: 200;}
 
 span { 
     margin: 10px 0;
