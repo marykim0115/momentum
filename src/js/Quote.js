@@ -91,7 +91,7 @@ const Quote = () => {
 
   const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
   return (
-    <div id="quote" className="center whiteText">
+    <div id="quote" className="whiteText">
       <span>{todaysQuote.quote}</span>
       <span>{todaysQuote.author}</span>
     </div>
