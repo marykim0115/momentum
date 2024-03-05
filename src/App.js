@@ -1,12 +1,11 @@
 import "./css/App.css";
 import Login from "./js/Login";
 import Clock from "./js/Clock";
-import Background from "./js/Background";
+import Background from "./js/background";
 import Todo from "./js/todo";
 import { useState, useEffect } from "react";
 import Quote from "./js/Quote";
 import Weather from "./js/Weather";
-
 
 function App() {
   const [username, setUsername] = useState("");
@@ -23,7 +22,7 @@ function App() {
       <Background />
       <Weather />
       <Clock />
-      {username ? <Todo /> :<Login />}
+      {username ? <Todo /> : <Login />}
       <Quote />
     </div>
   );
