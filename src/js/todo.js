@@ -8,8 +8,10 @@ const Todo = () => {
   const TODO_KEY = "toDos";
 
   //로컬스토리지에 저장된 to do list가져와 -> toDos[] 배열에 담음
+
   useEffect(() => {
     const savedToDos = localStorage.getItem(TODO_KEY);
+
     if (savedToDos !== null) {
       setToDos(JSON.parse(savedToDos));
     }
@@ -29,20 +31,32 @@ const Todo = () => {
       text: newToDo,
       id: Date.now(),
     };
+    //setToDos(값)
 
-    setToDos([...toDos, newTodoObj]);
+    setToDos((todos) => {
+      const newTodos = todos.concat(newTodoObj);
+      localStorage.setItem(TODO_KEY, JSON.stringify(newTodos));
+
+      return newTodos;
+    });
+
     setNewToDo("");
-
-    localStorage.setItem(TODO_KEY, JSON.stringify(toDos));
   };
 
   // toDos[]의 상태가 변경될때마다, 로컬스토리지에 to do list 저장
-  // useEffect(() => {
-  //   localStorage.setItem(TODO_KEY, JSON.stringify(toDos));
-  // }, [toDos]);
+  /*
+  useEffect(() => {
+    localStorage.setItem(TODO_KEY, JSON.stringify(toDos));
+  }, [toDos]);
+*/
 
   const deleteToDo = (id) => {
-    setToDos((prevToDos) => prevToDos.filter((toDo) => toDo.id !== id));
+    setToDos((prevToDos) => {
+      const newTodos = prevToDos.filter((toDo) => toDo.id !== id);
+      localStorage.setItem(TODO_KEY, JSON.stringify(newTodos));
+
+      return newTodos;
+    });
   };
 
   return (
@@ -60,7 +74,7 @@ const Todo = () => {
 
       <ul>
         {toDos.map((toDo) => (
-          <li key={toDo.id}>
+          <li key={toDo.id} className="fade-in">
             <span>{toDo.text}</span>
             <button onClick={() => deleteToDo(toDo.id)}>X</button>
           </li>
