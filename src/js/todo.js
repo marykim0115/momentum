@@ -28,7 +28,7 @@ const Todo = () => {
     e.preventDefault();
 
     const newTodoObj = {
-      text: newToDo,
+      text: "▫️" + newToDo,
       id: Date.now(),
     };
     //setToDos(값)
